@@ -1,4 +1,4 @@
-package com.example.respositories;
+package com.example.repositories;
 
 import com.example.models.User;
 
