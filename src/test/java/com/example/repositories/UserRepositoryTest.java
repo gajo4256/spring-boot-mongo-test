@@ -5,16 +5,14 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.example.Application;
 import com.example.config.FakeMongoConfig;
 import com.example.models.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {FakeMongoConfig.class, Application.class}, loader = AnnotationConfigContextLoader.class)
+@SpringApplicationConfiguration(classes = FakeMongoConfig.class)
 public class UserRepositoryTest {
 
     @Autowired
