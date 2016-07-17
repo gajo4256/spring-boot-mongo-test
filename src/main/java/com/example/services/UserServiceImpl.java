@@ -1,13 +1,11 @@
 package com.example.services;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.models.User;
+import com.example.repositories.UserRepository;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
-import com.example.models.User;
-import com.example.repositories.UserRepository;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -15,7 +13,6 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final MongoTemplate mongoTemplate;
 
-    @Autowired
     public UserServiceImpl(final UserRepository userRepository, final MongoTemplate mongoTemplate) {
         this.userRepository = userRepository;
         this.mongoTemplate = mongoTemplate;
@@ -35,6 +32,11 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
 //        return userRepository.findAll();
         return mongoTemplate.findAll(User.class);
+    }
+
+    @Override
+    public void deleteAll() {
+        userRepository.deleteAll();
     }
 
 }

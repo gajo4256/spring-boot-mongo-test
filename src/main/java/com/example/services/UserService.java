@@ -1,8 +1,8 @@
 package com.example.services;
 
-import java.util.List;
-
 import com.example.models.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -11,5 +11,7 @@ public interface UserService {
     List<User> findByFirstName(String firstName);
 
     List<User> findAll();
+
+    void deleteAll();
 
 }
